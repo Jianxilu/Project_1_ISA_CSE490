@@ -1,4 +1,4 @@
-mode alu(
+module alu(
 	input [15:0} rs,
 	input [15:0] r,
 	input [1:0] op,
