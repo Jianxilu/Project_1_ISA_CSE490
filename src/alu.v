@@ -11,7 +11,7 @@ always @(*) begin
 	else if(op == 2'b01)
 		res = rs - r;
 	else if(op == 2'b10)
-		res = rs << r;
+		res = r << rs;
 	else
 		res = rs & r;
 end
