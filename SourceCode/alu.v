@@ -1,5 +1,5 @@
-mode alu(
-	input [15:0} rs,
+module alu(
+	input [15:0] rs,
 	input [15:0] r,
 	input [1:0] op,
 	output reg [15:0] res
@@ -11,7 +11,7 @@ always @(*) begin
 	else if(op == 2'b01)
 		res = rs - r;
 	else if(op == 2'b10)
-		res = rs << r;
+		res = r << rs;
 	else
 		res = rs & r;
 end
