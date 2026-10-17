@@ -19,7 +19,7 @@ initial begin
 
 	rs=4; r=90; op=2'b10; 
  	#10;
-	$display(“sll: %0d + %0d = %0d", rs, r, res);
+	$display("sll: %0d + %0d = %0d", rs, r, res);
 	//expected out = 1440
 
 	rs=12; r=10; op=2'b11; 
