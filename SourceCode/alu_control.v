@@ -5,12 +5,10 @@ module alu_control(
 );
 always @(*)
 begin
-  if(alu_op == 2'b00)
-    alu_ctrl = 2'b00;
+  if(alu_op == 2'b10)
+    alu_ctrl = funct[1:0];
   else if(alu_op == 2'b01)
     alu_ctrl = 2'b01;
-  else if(alu_op == 2'b10)
-    alu_ctrl = funct[1:0];
   else
     alu_ctrl = 2'b00;
 end
