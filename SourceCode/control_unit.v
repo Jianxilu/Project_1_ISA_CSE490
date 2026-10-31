@@ -15,7 +15,7 @@ always @(*)
 begin
     alu_op=2'b00;
     reg_write =1'b0;
-    alu_arc=1'b0;
+    alu_src=1'b0;
     mem_to_reg=1'b0;
     mem_read=1'b0;
     mem_write=1'b0;
@@ -47,7 +47,7 @@ begin
         4'b0011:  //this is for addi
         begin
             reg_write=1'b1;
-            alu_arc=1'b1;
+            alu_src=1'b1;
         end
 
         4'b0100:  //this is for beq
