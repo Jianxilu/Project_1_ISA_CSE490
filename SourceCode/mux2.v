@@ -1,15 +1,15 @@
 module mux2(
-    input [15:0] input1,
-    input [15:0] input2,
-    input selection,
-    output red[15;0] out
+    input [15:0] d0,
+    input [15:0] d1,
+    input sel,
+    output reg [15:0] y
 );
 
 always @(*)
 begin
-    if (selection==1'b1)
-        out==input2;
+    if (sel==1'b1)
+        y=d1;
     else
-        out==input1;
+        y=d0;
 end
 endmodule
