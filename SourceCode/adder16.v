@@ -1,11 +1,11 @@
 module adder16(
-    input [15:0] input1
-    input [15:0] input2,
-    output reg [15:0] total
+    input [15:0] a,
+    input [15:0] b,
+    output reg [15:0] sum
 );
 
 always @(*)
 begin
-    total=input1+input2;
+    sum=a+b;
 end
 endmodule
