@@ -1,0 +1,18 @@
+31 01 //00  addi $s1, $s0, 1     R1 = 1
+32 05 //02  addi $s2, $s0, 5     R2 = 5
+01 22 //04  sll  $s1, $s2        R1 = 1 << 5 = 0x20 (array pointer)
+33 04 //06  addi $s3, $s0, 4     R3 = 4 (loop counter)
+04 41 //08  sub  $s4, $s4        R4 = R4 - R4 = 0 (sum)
+35 0F //0A  addi $s5, $s0, -1    R5 = -1
+36 02 //0C  addi $s6, $s0, 2     R6 = 2
+17 10 //0E  lw   $s7, 0($s1)     loop: R7 = M[R1]
+04 70 //10  add  $s4, $s7        R4 = R7 + R4
+01 60 //12  add  $s1, $s6        R1 = R6 + R1 (pointer += 2)
+03 50 //14  add  $s3, $s5        R3 = R5 + R3 (counter -= 1)
+53 0B //16  bne  $s3, $s0, -5    if R3 != 0 go back to 0x0E
+44 01 //18  beq  $s4, $s0, +1    R4 = 24, not 0 -> not taken
+38 03 //1A  addi $s8, $s0, 3     must run: R8 = 3
+24 10 //1C  sw   $s4, 0($s1)     M[0x28..0x29] = 00 18
+60 01 //1E  jmp  +1              skip the next instruction, go to 0x22
+34 07 //20  addi $s4, $s0, 7     skipped
+6F FF //22  jmp  -1              end of program
