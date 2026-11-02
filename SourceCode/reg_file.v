@@ -7,7 +7,7 @@ module reg_file(
     input [15:0] write_data,
     input reg_write,
     output reg [15:0] read_data1,
-    output reg [15:0] read_data2
+    output reg [15:0] read_data2,
     input [3:0] debug_reg,
     output reg [15:0] debug_data
 );
