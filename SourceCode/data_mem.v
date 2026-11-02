@@ -1,6 +1,6 @@
 module data_mem(
   input clk,
-  input [15:0] eddr,
+  input [15:0] addr,
   input [15:0] write_data,
   input mem_write,
   input mem_readm,
