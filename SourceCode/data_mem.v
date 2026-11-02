@@ -1,9 +1,10 @@
 module data_mem(
   input clk,
+  input reset,
   input [15:0] addr,
   input [15:0] write_data,
   input mem_write,
-  input mem_readm,
+  input mem_read,
   output reg [15:0] read_data
 );
 reg [7:0] memory [0:255];
