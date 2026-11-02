@@ -3,10 +3,12 @@ reg [15:0] rs;
 reg [15:0] r;
 reg [1:0] op;
 wire [15:0] res;
-
+integer errors;
+	
 alu dut(.rs(rs), .r(r), .op(op), .res(res));
 
 initial begin
+	errors = 0;
 	rs=5; r=3; op=2'b00; 
  	#10;
 	$display("add: %0d + %0d = %0d", rs, r, res);
@@ -26,7 +28,9 @@ initial begin
   	#10;
 	$display("and: %0d + %0d = %0d", rs, r, res);
 	//expected out = 8
-
+	
+	if (errors==0) $display("ALU TESTS PASSED");
+	else $display("%0d ALU TEST(S) FAILED", errors);
 	$finish;
 end
 endmodule
