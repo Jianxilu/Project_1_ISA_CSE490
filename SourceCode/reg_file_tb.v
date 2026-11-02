@@ -35,9 +35,9 @@ initial begin
     @(negedge clk); read_reg1=3; read_reg2=15;
     #1;
     $display("read port 1: $s3 = %h (expected 1234)", read_data1);
-    if (read_data1!==16'h1234) errors=errors+1;
+    if(read_data1!==16'h1234) errors=errors+1;
     $display("read port 2: $s15 = %h (expected beef)", read_data2);
-    if (read_data2!==16'hBEEF) errors=errors+1;
+    if(read_data2!==16'hBEEF) errors=errors+1;
     read_reg1=0;
     #1;
     $display("$s0 = %h (expected 00aa)", read_data1);
@@ -47,11 +47,11 @@ initial begin
     @(negedge clk); reset=0; read_reg1=3;
     #1;
     $display("$s3 after reset = %h (expected 0000)", read_data1);
-    if (read_data1!==16'h0000) errors=errors+1;
+    if(read_data1!==16'h0000) errors=errors+1;
     $display("$s15 after reset = %h (expected 0000)", read_data2);
-    if (read_data2!==16'h0000) errors=errors+1;
+    if(read_data2!==16'h0000) errors=errors+1;
 
-    if (errors==0)
+    if(errors==0)
         $display("REGISTER FILE TESTS PASSED");
     else
         $display("%0d REGISTER FILE TEST(S) FAILED", errors);
