@@ -8,6 +8,8 @@ module reg_file(
     input reg_write,
     output reg [15:0] read_data1,
     output reg [15:0] read_data2
+    input [3:0] debug_reg,
+    output reg [15:0] debug_data
 );
 
 reg [15:0] registers [0:15];
@@ -30,8 +32,9 @@ always @(posedge clk)
 end
 always @(*)
 begin
-read_data1=registers[read_reg1];
-read_data2=registers[read_reg2];
+    read_data1=registers[read_reg1];
+    read_data2=registers[read_reg2];
+    debug_data=registers[debug_reg]; //extra read port for FPGA display
 end
 
 endmodule
