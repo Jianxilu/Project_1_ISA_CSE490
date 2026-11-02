@@ -1,0 +1,13 @@
+31 05 //00  addi $s1, $s0, 5     R1 = 5
+32 0D //02  addi $s2, $s0, -3    R2 = 0xFFFD
+02 10 //04  add  $s2, $s1        R2 = R1 + R2 = 2
+01 22 //06  sll  $s1, $s2        R1 = R1 << R2 = 20 (0x0014)
+21 04 //08  sw   $s1, 4($s0)     M[4..5] = 00 14
+13 04 //0A  lw   $s3, 4($s0)     R3 = 0x0014
+43 11 //0C  beq  $s3, $s1, +1    equal -> taken, go to 0x10
+34 07 //0E  addi $s4, $s0, 7     skipped
+03 21 //10  sub  $s3, $s2        R3 = R2 - R3 = 2 - 20 = 0xFFEE
+01 33 //12  and  $s1, $s3        R1 = R1 & R3 = 0x0004
+51 21 //14  bne  $s1, $s2, +1    4 != 2 -> taken, go to 0x18
+34 07 //16  addi $s4, $s0, 7     skipped
+6F FF //18  jmp  -1              jump to itself (end of program)
